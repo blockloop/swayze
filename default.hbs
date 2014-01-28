@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+    {{! Styles'n'Scripts }}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="{{asset "css/screen-old-ie.css"}}"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="{{asset "css/screen.css"}}">
+    <!--<![endif]-->
+    {{!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" /> --}}
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+
+    <div id="layout" class="pure-g">
+        <div class="sidebar pure-u-1 pure-u-med-1-4">
+            <div class="header">
+                <hgroup>
+                    <h1 class="brand-title">{{meta_title}}</h1>
+                    <h2 class="brand-tagline">{{meta_description}}</h2>
+                </hgroup>
+
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a class="pure-button" href="{{@blog.url}}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="pure-button" href="{{@blog.url}}/about">About</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="content pure-u-1 pure-u-med-3-4">
+            <div>
+                {{! Everything else gets inserted here }}
+                {{{body}}}
+
+                <div class="footer">
+                    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                        <ul>
+                            <li><a href="{{@blog.url}}/rss/">Subscribe!</a></li>
+                            <li><a href="http://twitter.com/yuilibrary/">Twitter</a></li>
+                            <li><a href="http://github.com/yui/pure/">Github</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+
+    {{! The main JavaScript file for Casper }}
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+
+</body>
+</html>
